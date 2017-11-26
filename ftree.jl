@@ -33,5 +33,3 @@ function buildFTree(T::Nullable{FTree}, dataArray::Array{KVPair, 1})
     end
     return T    
 end
-
-        
