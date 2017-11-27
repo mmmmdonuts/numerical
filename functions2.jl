@@ -1,4 +1,3 @@
-
 #######################################
 # Functions used in workbook two
 #######################################
@@ -202,23 +201,6 @@ function getdensity_list(N)
 end
 
 
-# Recursive function that takes the Fenwick containing the list of partial sums and 
-# a random Float64 in the range [0,x_n] as inputs and returns only the key
-# corresponding to the interval in which x lies
-function treesearch_key(T::Nullable{FTree},x::Float64)
-    if get(T).data.key==-1
-        if x<get(T).left.value.data.value
-            treesearch(get(T).left,x)
-        else 
-            x=x-get(T).left.value.data.value
-            treesearch(get(T).right,x)
-        end
-    else
-        return(get(T).data.key,get(T).data.value)
-    end
-end
-
-
 # Function that obtains particle density using diffusion coefficients
 # drawn from an exponential distribution. Now the intervals are not of equal
 # width and the information is stored in a Fenwick tree. Thus, the function 
@@ -273,7 +255,6 @@ function getdensity_tree(N)
     end
     return(P,X)
 end
-
 
 
 # Function that gives the particle density from the analytic solution found
